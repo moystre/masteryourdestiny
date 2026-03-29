@@ -673,7 +673,7 @@ export default function Home() {
                 <p style={{ fontFamily:sans, fontSize:"15px", color:C.lav, margin:"0 0 6px", fontWeight:400 }}>Seats are extremely limited — don't miss the next event.</p>
                 <UpdatedDate />
               </div>
-              <Btn variant="pink" style={{ fontSize:"16px", padding:"14px 36px", flexShrink:0 }} onClick={() => scrollTo("signup")}>Join Waitlist</Btn>
+              <div className="ready-exp-btn-wrap"><Btn variant="pink" style={{ fontSize:"16px", padding:"14px 36px", flexShrink:0 }} onClick={() => scrollTo("signup")}>Join Waitlist</Btn></div>
             </div>
           </FadeIn>
         </div>
