@@ -136,7 +136,12 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .mobile-nav-dropdown.open a:nth-child(4) { transition-delay:0.34s; }
   .nav-logo { height:22px !important; }
   .ticker-announce { animation-duration: 40s !important; }
-  .r-pad { padding-left: 16px !important; padding-right: 16px !important; }
+  .r-pad { padding-left: 14px !important; padding-right: 14px !important; }
+  .ticker-announce span { font-size: 11px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+  .footer-grid img { margin: 0 auto; }
+  .footer-grid p { max-width: 100% !important; }
+  .faq-body { transition: grid-template-rows 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease !important; }
 }
 
 /* Hero load animations */

@@ -34,7 +34,7 @@ export default function Footer() {
 
       {/* Footer */}
       <footer style={{ backgroundColor:"#000000", borderTop:"1px solid rgba(107,33,168,0.2)", padding:"48px 36px 28px", boxSizing:"border-box" as const, width:"100%" }}>
-        <div style={{ display:"grid", gridTemplateColumns:"1.6fr 1fr 1fr", gap:"40px", marginBottom:"36px" }}>
+        <div className="footer-grid" style={{ display:"grid", gridTemplateColumns:"1.6fr 1fr 1fr", gap:"40px", marginBottom:"36px" }}>
 
           {/* Brand */}
           <div style={{ display:"flex", flexDirection:"column" as const, gap:"16px" }}>
