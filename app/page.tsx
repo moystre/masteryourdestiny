@@ -600,7 +600,7 @@ export default function Home() {
     <div style={{ width:"100%", backgroundColor:C.bg, fontFamily:sans, color:C.white, overflowX:"hidden" }}>
 
       {/* HERO */}
-      <section style={{ width:"100%", height:"calc(100vh - 62px)", minHeight:"580px", display:"flex", flexDirection:"column", backgroundColor:C.bg, position:"relative" }}>
+      <section className="hero-section" style={{ width:"100%", height:"calc(100vh - 62px)", minHeight:"580px", display:"flex", flexDirection:"column", backgroundColor:C.bg, position:"relative" }}>
         {/* Liquid ether — extends below hero with fade-out mask */}
         <div style={{ position:"absolute", top:0, left:0, right:0, height:"160%", pointerEvents:"none", zIndex:0, WebkitMaskImage:"linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.32) 55%, rgba(0,0,0,0) 100%)", maskImage:"linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.32) 55%, rgba(0,0,0,0) 100%)" }}>
           <LiquidEther colors={["#4C1D95","#6D28D9","#9333EA","#A855F7"]} autoDemo={true} style={{ width:"100%", height:"100%" }} />
@@ -764,13 +764,9 @@ export default function Home() {
             </FadeIn>
           </div>
         </div>
-      </section>
-
-      {/* DISCLAIMER */}
-      <section style={{ ...sec, backgroundColor:C.bgMid, padding:"28px 36px" }} className="r-pad">
         <div style={{ ...inn, maxWidth:"680px" }}>
           <FadeIn>
-            <div style={{ borderTop:"1px solid rgba(107,33,168,0.18)", paddingTop:"22px", textAlign:"center" }}>
+            <div style={{ borderTop:"1px solid rgba(107,33,168,0.18)", paddingTop:"22px", marginTop:"12px", textAlign:"center" }}>
               <p style={{ fontFamily:sans, fontSize:"10px", color:"rgba(167,139,250,0.55)", letterSpacing:"0.18em", fontWeight:500, textTransform:"uppercase" as const, margin:"0 0 10px" }}>✦ Disclaimer</p>
               <p style={{ fontFamily:sans, fontSize:"12px", color:"rgba(167,139,250,0.48)", lineHeight:1.8, margin:0, fontWeight:400 }}>Our intention at this event is to assist with your personal wellbeing and personal development. This is not medical, psychological, financial, or legal advice. By attending you acknowledge that results shared are individual experiences and your results may vary. We encourage you to approach this event with an open heart and a very open mind.</p>
             </div>
@@ -783,19 +779,21 @@ export default function Home() {
         <div style={inn}>
           <FadeIn><Eye>Your Guides</Eye></FadeIn>
           <FadeIn delay={60} style={{ textAlign:"center" }}><h2 style={{ ...h2s, margin:"10px auto 28px" }}>About us</h2></FadeIn>
-          <div style={{ display:"grid", gridTemplateColumns:"1.1fr 1fr", gap:"44px", alignItems:"start" }} className="r-grid-2">
+          <div style={{ display:"grid", gridTemplateColumns:"1.1fr 1fr", gap:"44px", alignItems:"stretch" }} className="r-grid-2">
             <FadeIn>
               <div style={{ display:"flex", flexDirection:"column", gap:"10px" }}>
                 <img src="/images/about-josh.png" alt="Josh" style={{ borderRadius:"6px", objectFit:"cover", width:"100%", display:"block" }} />
                 <img src="/images/about-poli.png" alt="Poli" style={{ borderRadius:"6px", objectFit:"cover", width:"100%", display:"block" }} />
               </div>
             </FadeIn>
-            <div style={{ display:"flex", flexDirection:"column", gap:"18px" }}>
-              <FadeIn delay={80}><h3 style={{ fontFamily:serif, fontSize:"34px", fontWeight:400, color:C.white, margin:0 }}>Josh & Poli</h3></FadeIn>
-              <FadeIn delay={140}><p style={bdy}>Josh and Poli are passionate about helping people live their best life. They have experienced deep transformations themselves which gave them the desire to help others. Together, they combine ancient wisdom with cutting-edge techniques to create powerful, lasting change.</p></FadeIn>
-              <FadeIn delay={180}><p style={bdy}>Their mission is to help as many people as possible to break free from limitations, discover their true purpose, and live a life full of joy, abundance, and fulfilment — having facilitated transformations for thousands of people across the globe.</p></FadeIn>
+            <div style={{ display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
+              <div style={{ display:"flex", flexDirection:"column", gap:"16px" }}>
+                <FadeIn delay={80}><h3 style={{ fontFamily:serif, fontSize:"26px", fontWeight:400, color:C.white, margin:0 }}>Josh & Poli</h3></FadeIn>
+                <FadeIn delay={140}><p style={bdy}>Josh and Poli combine ancient wisdom with cutting-edge techniques to create powerful, lasting change — driven by their own deep personal transformations.</p></FadeIn>
+                <FadeIn delay={180}><p style={bdy}>Their mission: help people break free from limitations, find their true purpose, and live with joy and fulfilment — having guided thousands across the globe.</p></FadeIn>
+              </div>
               <FadeIn delay={220}>
-                <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginTop:"6px" }}>
+                <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginTop:"18px" }}>
                   {([{to:100,suffix:"%",label:"Attendance satisfaction",raw:false},{to:312,suffix:"+",label:"Completed events",raw:true},{to:11300,suffix:"+",label:"Assisted individuals",raw:true},{to:7,suffix:"+",label:"Years of coaching experience",raw:true}] as {to:number;suffix:string;label:string;raw:boolean}[]).map((s,i) => (
                     <div key={i} style={{ padding:"16px", backgroundColor:"rgba(50,14,100,0.4)", borderRadius:"6px", border:"1px solid rgba(107,33,168,0.3)" }}>
                       <div style={{ fontFamily:serif, fontSize:"32px", fontWeight:400, color:C.white, lineHeight:1 }}><CountUp to={s.to} suffix={s.suffix} raw={s.raw} /></div>

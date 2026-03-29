@@ -149,7 +149,7 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .hero-btns { margin-top: 12px; }
   .ready-exp-btn-wrap { width: 100%; }
   .ready-exp-btn-wrap button { width: 100% !important; }
-  section { padding-top: 38px !important; padding-bottom: 38px !important; }
+  section:not(.hero-section) { padding-top: 38px !important; padding-bottom: 38px !important; }
 }
 
 /* Hero load animations */

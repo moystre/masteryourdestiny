@@ -33,7 +33,7 @@ export default function Footer() {
       </section>
 
       {/* Footer */}
-      <footer style={{ backgroundColor:"#000000", borderTop:"1px solid rgba(107,33,168,0.2)", padding:"48px 36px 28px", boxSizing:"border-box" as const, width:"100%" }}>
+      <footer style={{ backgroundColor:"#000000", borderTop:"1px solid rgba(107,33,168,0.2)", padding:"72px 36px 28px", boxSizing:"border-box" as const, width:"100%" }}>
         <div className="footer-grid" style={{ display:"grid", gridTemplateColumns:"1.6fr 1fr 1fr", gap:"40px", marginBottom:"36px" }}>
 
           {/* Brand */}
