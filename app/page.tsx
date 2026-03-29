@@ -493,14 +493,12 @@ const DAY2_ITEMS: CurrItem[] = [
 
 /* ── Video Testimonial Carousel ── */
 const VIDEOS = [
-  { id:"910683081", thumb:"https://i.vimeocdn.com/video/1794790031-10663a0e0d35d2c10231a77fee47d04f5c3d43abb707158b1f5436d1a0856d92-d_200x150?region=us" },
-  { id:"910682604", thumb:"https://i.vimeocdn.com/video/1794789548-810f89764747998fca1061145f9adff661f590f98a0670ce47c3bf00bf4cc680-d_200x150?region=us" },
   { id:"910682022", thumb:"https://i.vimeocdn.com/video/1794881227-f70e1606fc985ea9f11be74c297d7abfce005c844fead933335f5bc4e529c2ba-d_295x166?region=us" },
-  { id:"910681338", thumb:"https://i.vimeocdn.com/video/1794787103-c89251f80c16d4f742005154645fb9caf1696bed44cee145bd8b4ff3e04b7fe6-d_200x150?region=us" },
   { id:"910681545", thumb:"https://i.vimeocdn.com/video/1794903453-421e46c020d0f5763634e0d6cb123481004434d18f9432ff62932327f54881cc-d_295x166?region=us" },
   { id:"910682119", thumb:"https://i.vimeocdn.com/video/1794789188-b63c591313087ce275f05f4e154db836874ead4473ab8f37273524a2403e1c46-d_295x166?region=us" },
   { id:"911039145", thumb:"https://i.vimeocdn.com/video/1795325882-7ab0beaf524b6bc898fa4054f047d30586cf211ef8a4e958646a9935012a1e1d-d_200x150?region=us" },
   { id:"910682067", thumb:"https://i.vimeocdn.com/video/1794788321-65666322e65fdc80e9768d90b6d049bbce61b2d2dc807a7cc94779f56d4c1537-d_295x166?region=us" },
+  { id:"910683081", thumb:"https://i.vimeocdn.com/video/1794790031-10663a0e0d35d2c10231a77fee47d04f5c3d43abb707158b1f5436d1a0856d92-d_200x150?region=us" },
 ]
 
 function VideoCarousel() {
@@ -627,7 +625,7 @@ export default function Home() {
           <div className="hero-anim hero-d2"><Eye>A Transformational 2-Day Live Event</Eye></div>
           <h1 className="hero-anim hero-d3" style={{ fontFamily:serif, fontWeight:400, fontSize:"clamp(38px,7vw,90px)", color:C.white, lineHeight:1.02, textAlign:"center", maxWidth:"880px", margin:0 }}>Make your next 6 months better than the last 10 years</h1>
           <p className="hero-anim hero-d4" style={{ fontFamily:sans, fontSize:"18px", color:C.lav, textAlign:"center", maxWidth:"520px", margin:0, lineHeight:1.65, fontWeight:400 }}>Using Superconscious spiritual teachings — ancient wisdom engineered for modern transformation</p>
-          <div className="hero-anim hero-d5" style={{ display:"flex", gap:"14px", flexWrap:"wrap", justifyContent:"center" }}>
+          <div className="hero-anim hero-d5 hero-btns" style={{ display:"flex", gap:"14px", flexWrap:"wrap", justifyContent:"center" }}>
             <Btn variant="pink"  style={{ fontSize:"16px", padding:"14px 40px" }} onClick={() => scrollTo("signup")}>Join Waitlist</Btn>
             <Btn variant="ghost" style={{ fontSize:"16px", padding:"14px 40px" }} onClick={() => scrollTo("program")}>Learn More</Btn>
           </div>

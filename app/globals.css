@@ -7,10 +7,11 @@
 @font-face { font-family: "Karla"; src: url("/fonts/Karla-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
 
 /* overflow-x:clip does NOT create a new scroll container, so position:sticky still works */
-html { scroll-behavior: smooth; overflow-x: clip; }
+html { scroll-behavior: smooth; }
+body { overflow-x: clip; }
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; padding: 0; }
-body { margin: 0; padding: 0; background: #140B22; overflow-x: clip; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { margin: 0; padding: 0; background: #140B22; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 input, button { font-family: inherit; }
 input::placeholder { color: rgba(196,149,253,0.45); }
 
@@ -135,13 +136,17 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .mobile-nav-dropdown.open a:nth-child(3) { transition-delay:0.26s; }
   .mobile-nav-dropdown.open a:nth-child(4) { transition-delay:0.34s; }
   .nav-logo { height:22px !important; }
+  .nav-link { display:none; }
   .ticker-announce { animation-duration: 40s !important; }
-  .r-pad { padding-left: 14px !important; padding-right: 14px !important; }
-  .ticker-announce span { font-size: 11px !important; }
-  .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
-  .footer-grid img { margin: 0 auto; }
+  .ticker-announce span { font-size: 10px !important; padding: 0 12px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; text-align: center !important; align-items: center; }
+  .footer-grid img { margin: 0 auto !important; }
   .footer-grid p { max-width: 100% !important; }
+  .footer-grid h5 { text-align: center !important; }
+  .footer-grid button { margin: 0 auto !important; }
   .faq-body { transition: grid-template-rows 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease !important; }
+  .hero-btns button, .hero-btns a { flex: 1 1 0; min-width: 0; }
+  section { padding-top: 28px !important; padding-bottom: 28px !important; }
 }
 
 /* Hero load animations */
@@ -191,7 +196,7 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .r-grid-4 { grid-template-columns: 1fr 1fr !important; }
   .r-col    { flex-direction: column !important; }
   .r-hide   { display: none !important; }
-  .r-pad    { padding-left: 20px !important; padding-right: 20px !important; }
+  .r-pad    { padding-left: 14px !important; padding-right: 14px !important; }
   .r-hide-mobile { display: none !important; }
   .r-show-mobile { display: block !important; }
   .slider-card { height: auto !important; grid-template-columns: 1fr !important; }
