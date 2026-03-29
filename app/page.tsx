@@ -66,10 +66,7 @@ function MiniReviews() {
           <img key={i} src={src} alt="" style={{ width:"34px", height:"34px", borderRadius:"50%", border:"2px solid #140B22", marginLeft:i===0?0:"-9px", objectFit:"cover", display:"block" }} />
         ))}
       </div>
-      <div style={{ display:"flex", flexDirection:"column", gap:"4px" }}>
-        <Stars />
-        <span style={{ fontFamily:sans, fontSize:"13px", color:C.lav, fontWeight:500 }}>1,173+ reviews</span>
-      </div>
+      <span style={{ fontFamily:sans, fontSize:"13px", color:C.muted, fontWeight:500 }}>1,173+ reviews</span>
     </div>
   )
 }
@@ -628,7 +625,7 @@ export default function Home() {
         <div style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:"24px", padding:"32px 36px", boxSizing:"border-box", position:"relative", zIndex:1 }} className="r-pad">
           <div className="hero-anim hero-d1"><MiniReviews /></div>
           <div className="hero-anim hero-d2"><Eye>A Transformational 2-Day Live Event</Eye></div>
-          <h1 className="hero-anim hero-d3" style={{ fontFamily:serif, fontWeight:400, fontSize:"clamp(52px,7vw,90px)", color:C.white, lineHeight:1.02, textAlign:"center", maxWidth:"880px", margin:0 }}>Make your next 6 months better than the last 10 years</h1>
+          <h1 className="hero-anim hero-d3" style={{ fontFamily:serif, fontWeight:400, fontSize:"clamp(38px,7vw,90px)", color:C.white, lineHeight:1.02, textAlign:"center", maxWidth:"880px", margin:0 }}>Make your next 6 months better than the last 10 years</h1>
           <p className="hero-anim hero-d4" style={{ fontFamily:sans, fontSize:"18px", color:C.lav, textAlign:"center", maxWidth:"520px", margin:0, lineHeight:1.65, fontWeight:400 }}>Using Superconscious spiritual teachings — ancient wisdom engineered for modern transformation</p>
           <div className="hero-anim hero-d5" style={{ display:"flex", gap:"14px", flexWrap:"wrap", justifyContent:"center" }}>
             <Btn variant="pink"  style={{ fontSize:"16px", padding:"14px 40px" }} onClick={() => scrollTo("signup")}>Join Waitlist</Btn>
@@ -663,14 +660,14 @@ export default function Home() {
 
       {/* THE PROGRAM */}
       <section id="program" style={{ ...sec, backgroundColor:C.bgMid, padding:"56px 0" }}>
-        <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }}>
+        <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }} className="r-pad">
           <FadeIn><Eye>The Program</Eye></FadeIn>
           <FadeIn delay={60} style={{ textAlign:"center" }}><h2 style={{ ...h2s, margin:"6px auto 0" }}>What you will discover with us</h2></FadeIn>
         </div>
         <FadeIn style={{ width:"100%", marginTop:"-8px" }}>
           <AllDaysCarousel />
         </FadeIn>
-        <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }}>
+        <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }} className="r-pad">
           <FadeIn delay={80}>
             <div style={{ padding:"40px", backgroundColor:"#170531", borderRadius:"6px", border:`1px solid rgba(107,33,168,0.5)`, display:"flex", alignItems:"center", justifyContent:"space-between", gap:"28px", flexWrap:"wrap" as const }}>
               <div>

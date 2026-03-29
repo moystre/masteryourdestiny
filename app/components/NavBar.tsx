@@ -21,9 +21,9 @@ export default function NavBar() {
   }
 
   return (
-    <nav style={{ width:"100%", padding:"14px 36px", display:"flex", justifyContent:"space-between", alignItems:"center", boxSizing:"border-box", borderBottom:"1px solid rgba(107,33,168,0.2)", background:"linear-gradient(to right, #000000 0px, #000000 220px, rgba(20,11,34,0.97) 420px)", backdropFilter:"blur(12px)", position:"sticky", top:0, zIndex:100, flexWrap:"wrap" as const }} className="r-pad">
-      <Link href="/" style={{ display:"block" }}>
-        <img src="/images/img-1HsZ.png" alt="Master Your Destiny" style={{ height:"32px", width:"auto", display:"block", flexShrink:0 }} />
+    <nav style={{ width:"100%", padding:"14px 36px", display:"flex", justifyContent:"space-between", alignItems:"center", boxSizing:"border-box", borderBottom:"1px solid rgba(107,33,168,0.2)", background:"linear-gradient(to right, #000000 0px, #000000 220px, rgba(20,11,34,0.97) 420px)", backdropFilter:"blur(12px)", position:"sticky", top:0, zIndex:100 }} className="r-pad">
+      <Link href="/" style={{ display:"block", flexShrink:1, minWidth:0 }}>
+        <img src="/images/img-1HsZ.png" alt="Master Your Destiny" className="nav-logo" style={{ height:"32px", width:"auto", display:"block", maxWidth:"100%" }} />
       </Link>
       <div style={{ display:"flex", gap:"28px", alignItems:"center" }} className="r-hide">
         {navLinks.map(([l, id]) => (

@@ -134,6 +134,9 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .mobile-nav-dropdown.open a:nth-child(2) { transition-delay:0.18s; }
   .mobile-nav-dropdown.open a:nth-child(3) { transition-delay:0.26s; }
   .mobile-nav-dropdown.open a:nth-child(4) { transition-delay:0.34s; }
+  .nav-logo { height:22px !important; }
+  .ticker-announce { animation-duration: 40s !important; }
+  .r-pad { padding-left: 16px !important; padding-right: 16px !important; }
 }
 
 /* Hero load animations */
