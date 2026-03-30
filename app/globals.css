@@ -150,6 +150,7 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .ready-exp-btn-wrap { width: 100%; }
   .ready-exp-btn-wrap button { width: 100% !important; }
   section:not(.hero-section) { padding-top: 51px !important; padding-bottom: 51px !important; }
+  .legal-page section { padding-top: 0 !important; padding-bottom: 0 !important; }
   .signup-form-col { position: static !important; }
 }
 

@@ -288,13 +288,13 @@ function TickerRow({ items, direction, speed }: { items:typeof TICKERS[0]; direc
 function FAQItem({ q, a, open, onToggle }: { q:string; a:string; open:boolean; onToggle:()=>void }) {
   return (
     <div style={{ borderBottom:"1px solid rgba(107,33,168,0.3)" }}>
-      <button onClick={onToggle} style={{ width:"100%", background:"none", border:"none", cursor:"pointer", padding:"22px 0", display:"flex", justifyContent:"space-between", alignItems:"center", textAlign:"left", gap:"20px" }}>
+      <button onClick={onToggle} style={{ width:"100%", background:"none", border:"none", cursor:"pointer", padding:"22px 10px", display:"flex", justifyContent:"space-between", alignItems:"center", textAlign:"left", gap:"20px" }}>
         <span style={{ fontFamily:sans, fontSize:"16px", fontWeight:400, color:C.white }}>{q}</span>
         <span style={{ color:C.muted, fontSize:"22px", flexShrink:0, lineHeight:1, transform:open?"rotate(45deg)":"none", transition:"transform 0.28s cubic-bezier(0.4,0,0.2,1)", display:"inline-block" }}>+</span>
       </button>
       <div className={`faq-body${open?" open":""}`}>
         <div>
-          <p style={{ fontFamily:sans, fontSize:"15px", color:C.body, lineHeight:1.7, margin:0, paddingBottom:"22px" }}>{a}</p>
+          <p style={{ fontFamily:sans, fontSize:"15px", color:C.body, lineHeight:1.7, margin:0, padding:"0 10px 22px" }}>{a}</p>
         </div>
       </div>
     </div>

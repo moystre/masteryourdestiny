@@ -7,7 +7,7 @@ const C = { bg:"#140B22", white:"#FFFFFF", lav:"#D8B4FE", muted:"#A78BFA", body:
 
 export default function Privacy() {
   return (
-    <div style={{ minHeight:"100vh", backgroundColor:C.bg, fontFamily:sans, color:C.white }}>
+    <div className="legal-page" style={{ minHeight:"100vh", backgroundColor:C.bg, fontFamily:sans, color:C.white }}>
       {/* Sticky back bar — sits below shared navbar at top:62px */}
       <div style={{ position:"sticky", top:"62px", zIndex:50, background:"rgba(5,2,15,0.65)", backdropFilter:"blur(12px)", borderBottom:"1px solid rgba(107,33,168,0.18)", padding:"10px 36px" }}>
         <Link href="/" style={{ display:"inline-flex", alignItems:"center", gap:"10px", fontFamily:sans, fontWeight:600, fontSize:"14px", color:C.lav, textDecoration:"none", padding:"5px 18px", border:"1px solid rgba(107,33,168,0.45)", borderRadius:"4px", lineHeight:1 }}>
