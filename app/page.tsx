@@ -11,7 +11,7 @@ const C = {
 }
 const serif = '"Zodiak", Georgia, serif'
 const sans  = '"Karla", system-ui, sans-serif'
-const sec: React.CSSProperties = { width:"100%", padding:"56px 36px", boxSizing:"border-box", display:"flex", flexDirection:"column", alignItems:"center", gap:"32px" }
+const sec: React.CSSProperties = { width:"100%", padding:"76px 36px", boxSizing:"border-box", display:"flex", flexDirection:"column", alignItems:"center", gap:"44px" }
 const inn: React.CSSProperties = { width:"100%", maxWidth:"1080px" }
 const h2s: React.CSSProperties = { fontFamily:serif, fontWeight:400, fontSize:"clamp(32px,3.8vw,48px)", color:C.white, lineHeight:1.12, margin:0 }
 const bdy: React.CSSProperties = { fontFamily:sans, fontSize:"16px", color:C.body, lineHeight:1.65, margin:0, fontWeight:400 }
@@ -506,6 +506,7 @@ function VideoCarousel() {
   const [idx, setIdx] = useState(2)
   const [activated, setActivated] = useState<Record<number,boolean>>({})
   const touchStartX = useRef(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
   const CARD_W = 373, CARD_H = 210, GAP = 16
 
   const prev = () => setIdx(i => Math.max(0, i - 1))
@@ -517,10 +518,24 @@ function VideoCarousel() {
   }
   const activateVideo = (i: number) => setActivated(a => ({ ...a, [i]: true }))
 
+  useEffect(() => {
+    const el = carouselRef.current
+    if (!el) return
+    const handleWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
+        e.preventDefault()
+        if (e.deltaX > 0) setIdx(i => Math.min(total - 1, i + 1))
+        else setIdx(i => Math.max(0, i - 1))
+      }
+    }
+    el.addEventListener("wheel", handleWheel, { passive: false })
+    return () => el.removeEventListener("wheel", handleWheel)
+  }, [total])
+
   return (
-    <section style={{ ...sec, backgroundColor:C.bg, padding:"56px 0" }}>
+    <section style={{ ...sec, backgroundColor:C.bg, padding:"76px 0" }}>
       <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }}><FadeIn><Eye>Working with us</Eye></FadeIn></div>
-      <div style={{ width:"100%", overflow:"hidden", cursor:"grab", userSelect:"none" }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+      <div ref={carouselRef} style={{ width:"100%", overflow:"hidden", cursor:"grab", userSelect:"none" }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <div style={{ display:"flex", gap:GAP, transform:`translateX(calc(50vw - ${CARD_W/2}px - ${idx*(CARD_W+GAP)}px))`, transition:"transform 0.35s cubic-bezier(0.4,0,0.2,1)", padding:"4px 0 16px" }}>
           {VIDEOS.map((vid, i) => {
             const isActive = activated[i]
@@ -633,7 +648,7 @@ export default function Home() {
       </section>
 
       {/* VIDEO */}
-      <section style={{ ...sec, backgroundColor:C.bg, padding:"48px 36px" }} className="r-pad">
+      <section style={{ ...sec, backgroundColor:C.bg, padding:"65px 36px" }} className="r-pad">
         <FadeIn style={inn}>
           <VimeoPlayer />
         </FadeIn>
@@ -657,7 +672,7 @@ export default function Home() {
       </section>
 
       {/* THE PROGRAM */}
-      <section id="program" style={{ ...sec, backgroundColor:C.bgMid, padding:"56px 0" }}>
+      <section id="program" style={{ ...sec, backgroundColor:C.bgMid, padding:"76px 0" }}>
         <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }} className="r-pad">
           <FadeIn><Eye>The Program</Eye></FadeIn>
           <FadeIn delay={60} style={{ textAlign:"center" }}><h2 style={{ ...h2s, margin:"6px auto 0" }}>What you will discover with us</h2></FadeIn>
@@ -665,18 +680,6 @@ export default function Home() {
         <FadeIn style={{ width:"100%", marginTop:"-8px" }}>
           <AllDaysCarousel />
         </FadeIn>
-        <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }} className="r-pad">
-          <FadeIn delay={80}>
-            <div style={{ padding:"40px", backgroundColor:"#170531", borderRadius:"6px", border:`1px solid rgba(107,33,168,0.5)`, display:"flex", alignItems:"center", justifyContent:"space-between", gap:"28px", flexWrap:"wrap" as const }}>
-              <div>
-                <h3 style={{ fontFamily:serif, fontSize:"28px", fontWeight:400, color:C.white, margin:"0 0 8px" }}>Ready to experience this yourself?</h3>
-                <p style={{ fontFamily:sans, fontSize:"15px", color:C.lav, margin:"0 0 6px", fontWeight:400 }}>Seats are extremely limited — don't miss the next event.</p>
-                <UpdatedDate />
-              </div>
-              <div className="ready-exp-btn-wrap"><Btn variant="pink" style={{ fontSize:"16px", padding:"14px 36px", flexShrink:0 }} onClick={() => scrollTo("signup")}>Join Waitlist</Btn></div>
-            </div>
-          </FadeIn>
-        </div>
       </section>
 
       {/* SIDE EFFECTS */}
@@ -686,20 +689,19 @@ export default function Home() {
           <FadeIn delay={60} style={{ textAlign:"center" }}><h2 style={{ ...h2s, margin:"10px auto 24px" }}>Common side effects of this process</h2></FadeIn>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(12,1fr)", gap:"12px" }}>
             {[
-              { icon:"𓇬", quote:'"I never knew life could feel so good!"',                colors:["#3B0764","#6D28D9","#A855F7","#C026D3"] },
-              { icon:"✺",  quote:'"I\'ve finally found my purpose and know exactly what decisions I need to make to achieve it!!"', colors:["#1E0A3C","#4C1D95","#7C3AED","#A855F7"] },
-              { icon:"𓇬", quote:'"I didn\'t realise how small I was thinking for so long!"',                                        colors:["#2D0A64","#5B21B6","#8B5CF6","#C026D3"] },
-              { icon:"✺",  quote:'"I\'ve shifted reality — it really works! I now see that I really can have anything I want!"',    colors:["#1A0835","#4C1D95","#9333EA","#A855F7"] },
+              { avatar:"/images/avatar-1.png",                           quote:'"I never knew life could feel so good!"',                                                                           colors:["#3B0764","#6D28D9","#A855F7","#C026D3"] },
+              { avatar:"/images/avatar-2.png",                           quote:'"I\'ve finally found my purpose and know exactly what decisions I need to make to achieve it!!"',                  colors:["#1E0A3C","#4C1D95","#7C3AED","#A855F7"] },
+              { avatar:"/images/avatar-3.png",                           quote:'"I didn\'t realise how small I was thinking for so long!"',                                                        colors:["#2D0A64","#5B21B6","#8B5CF6","#C026D3"] },
+              { avatar:"https://picsum.photos/seed/av4/60/60",           quote:'"I\'ve shifted reality — it really works! I now see that I really can have anything I want!"',                    colors:["#1A0835","#4C1D95","#9333EA","#A855F7"] },
             ].map((item,i) => (
               <div key={i} className={`se-card-${i}`} style={{ minWidth:0, display:"flex", flexDirection:"column" }}>
                 <FadeIn delay={i * 80} style={{ flex:1, display:"flex", flexDirection:"column" }}>
                   <div className="se-card-shell" style={{ minHeight:"180px" }}>
-                    {/* LiquidEther flame effect fills the card background */}
                     <div style={{ position:"absolute", inset:0, opacity:0.6, zIndex:0 }}>
                       <LiquidEther colors={item.colors} autoDemo={true} style={{ width:"100%", height:"100%" }} />
                     </div>
                     <div style={{ position:"relative", zIndex:1, padding:"26px", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:"12px", textAlign:"center", flex:1 }}>
-                      <span style={{ fontSize:"22px", color:C.lav, lineHeight:1 }}>{item.icon}</span>
+                      <img src={item.avatar} alt="" style={{ width:"48px", height:"48px", borderRadius:"50%", border:"2px solid rgba(168,85,247,0.5)", objectFit:"cover", display:"block", flexShrink:0 }} />
                       <p style={{ fontFamily:serif, fontSize:"16px", fontStyle:"italic", fontWeight:400, color:"#F3E8FF", lineHeight:1.6, margin:0 }}>{item.quote}</p>
                     </div>
                   </div>
@@ -707,11 +709,21 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <FadeIn style={{ textAlign:"center", paddingTop:"16px" }}>
+            <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"12px" }}>
+              <p style={{ fontFamily:sans, fontSize:"17px", color:C.lav, margin:0, fontWeight:500 }}>Ready to experience this yourself?</p>
+              <p style={{ fontFamily:sans, fontSize:"15px", color:C.muted, margin:0 }}>Seats are extremely limited — don&apos;t miss the next event.</p>
+              <UpdatedDate />
+              <div className="ready-exp-btn-wrap" style={{ marginTop:"8px" }}>
+                <Btn variant="pink" style={{ fontSize:"16px", padding:"14px 36px" }} onClick={() => scrollTo("signup")}>Join Waitlist</Btn>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" style={{ ...sec, backgroundColor:C.bgMid, padding:"52px 0", gap:"14px", overflow:"hidden" }}>
+      <section id="testimonials" style={{ ...sec, backgroundColor:C.bgMid, padding:"70px 0", gap:"14px", overflow:"hidden" }}>
         <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box", textAlign:"center" }}>
           <Eye>Real Transformations</Eye>
           <FadeIn style={{ textAlign:"center" }}><h2 style={{ ...h2s, margin:"12px auto 0" }}>What our community says</h2></FadeIn>
@@ -747,12 +759,12 @@ export default function Home() {
                     </div>
                     <p style={{ fontFamily:sans, fontSize:"12px", color:"rgba(167,139,250,0.42)", lineHeight:1.7, margin:0, fontWeight:400, textAlign:"center" }}><span style={{ color:"rgba(167,139,250,0.55)", fontWeight:500 }}>Guaranteed.</span> If we won&apos;t exceed your expectations, we will refund your money and give you $100 extra. That&apos;s how confident we are that this event will change your life.</p>
                   </div>
-                  <button className="btn-soldout" onClick={() => scrollTo("signup")} style={{ width:"100%", padding:"13px", fontSize:"13px", fontFamily:sans, fontWeight:600, letterSpacing:"0.1em", borderRadius:"6px", marginTop:"6px", backgroundColor:"transparent", color:C.muted, border:`1px solid rgba(167,139,250,0.3)`, cursor:"pointer", whiteSpace:"nowrap" as const }}>THIS EVENT IS SOLD OUT</button>
+                  <button className="btn-soldout" style={{ width:"100%", padding:"13px", fontSize:"13px", fontFamily:sans, fontWeight:600, letterSpacing:"0.1em", borderRadius:"6px", marginTop:"6px", backgroundColor:"transparent", color:C.muted, border:`1px solid rgba(167,139,250,0.3)`, cursor:"default", whiteSpace:"nowrap" as const }}>THIS EVENT IS SOLD OUT</button>
                 </div>
               </div>
             </FadeIn>
           </div>
-          <div style={{ display:"flex", flexDirection:"column", gap:"22px" }}>
+          <div className="signup-form-col" style={{ display:"flex", flexDirection:"column", gap:"22px" }}>
             <FadeIn>
               <Eye>Join our waitlist</Eye>
             </FadeIn>

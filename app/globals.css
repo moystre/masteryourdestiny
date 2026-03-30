@@ -149,7 +149,8 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .hero-btns { margin-top: 12px; }
   .ready-exp-btn-wrap { width: 100%; }
   .ready-exp-btn-wrap button { width: 100% !important; }
-  section:not(.hero-section) { padding-top: 38px !important; padding-bottom: 38px !important; }
+  section:not(.hero-section) { padding-top: 51px !important; padding-bottom: 51px !important; }
+  .signup-form-col { position: static !important; }
 }
 
 /* Hero load animations */
@@ -180,11 +181,14 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   flex-direction: column;
 }
 
-/* Side-effects masonry spans (12-col grid) */
-.se-card-0 { grid-column: span 4; }
-.se-card-1 { grid-column: span 8; }
-.se-card-2 { grid-column: span 5; }
-.se-card-3 { grid-column: span 7; }
+/* Side-effects: 4 equal cards in one row on desktop */
+.se-card-0 { grid-column: span 3; }
+.se-card-1 { grid-column: span 3; }
+.se-card-2 { grid-column: span 3; }
+.se-card-3 { grid-column: span 3; }
+
+/* Sticky signup form col (desktop only) */
+.signup-form-col { position: sticky; top: 82px; align-self: start; }
 
 /* Story slider */
 .slider-text-panel { border-right:1px solid #6B21A8; }
@@ -206,7 +210,7 @@ input::placeholder { color: rgba(196,149,253,0.45); }
   .slider-text-panel { border-right:none !important; border-bottom:1px solid #6B21A8; order:2; }
   .slider-img-panel { order:1; }
   .slider-img { height:auto !important; aspect-ratio:4/3; object-fit:cover; }
-  .se-card-0, .se-card-1, .se-card-2, .se-card-3 { grid-column: span 6; }
+  .se-card-0, .se-card-1, .se-card-2, .se-card-3 { grid-column: span 6 !important; }
 }
 @media (max-width: 560px) {
   .r-grid-3 { grid-template-columns: 1fr !important; }
