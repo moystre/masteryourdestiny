@@ -522,7 +522,7 @@ function VideoCarousel() {
     const el = carouselRef.current
     if (!el) return
     const handleWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 40) {
         e.preventDefault()
         if (e.deltaX > 0) setIdx(i => Math.min(total - 1, i + 1))
         else setIdx(i => Math.max(0, i - 1))
@@ -533,7 +533,7 @@ function VideoCarousel() {
   }, [total])
 
   return (
-    <section style={{ ...sec, backgroundColor:C.bg, padding:"76px 0" }}>
+    <section style={{ ...sec, backgroundColor:C.bg, padding:"76px 0", gap:"18px" }}>
       <div style={{ width:"100%", maxWidth:"1080px", padding:"0 36px", boxSizing:"border-box" as const }}><FadeIn><Eye>Working with us</Eye></FadeIn></div>
       <div ref={carouselRef} style={{ width:"100%", overflow:"hidden", cursor:"grab", userSelect:"none" }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <div style={{ display:"flex", gap:GAP, transform:`translateX(calc(50vw - ${CARD_W/2}px - ${idx*(CARD_W+GAP)}px))`, transition:"transform 0.35s cubic-bezier(0.4,0,0.2,1)", padding:"4px 0 16px" }}>
@@ -612,7 +612,7 @@ function StoryAccordion() {
 export default function Home() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
-    <div style={{ width:"100%", backgroundColor:C.bg, fontFamily:sans, color:C.white, overflowX:"hidden" }}>
+    <div style={{ width:"100%", backgroundColor:C.bg, fontFamily:sans, color:C.white, overflowX:"clip" }}>
 
       {/* HERO */}
       <section className="hero-section" style={{ width:"100%", height:"calc(100vh - 62px)", minHeight:"580px", display:"flex", flexDirection:"column", backgroundColor:C.bg, position:"relative" }}>
@@ -709,7 +709,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <FadeIn style={{ textAlign:"center", paddingTop:"16px" }}>
+          <FadeIn style={{ textAlign:"center", paddingTop:"40px" }}>
             <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"12px" }}>
               <p style={{ fontFamily:sans, fontSize:"17px", color:C.lav, margin:0, fontWeight:500 }}>Ready to experience this yourself?</p>
               <p style={{ fontFamily:sans, fontSize:"15px", color:C.muted, margin:0 }}>Seats are extremely limited — don&apos;t miss the next event.</p>
@@ -757,7 +757,7 @@ export default function Home() {
                       <span style={{ color:C.muted, fontSize:"11px" }}>✦</span>
                       <div style={{ flex:1, height:"1px", backgroundColor:"rgba(107,33,168,0.3)" }} />
                     </div>
-                    <p style={{ fontFamily:sans, fontSize:"12px", color:"rgba(167,139,250,0.42)", lineHeight:1.7, margin:0, fontWeight:400, textAlign:"center" }}><span style={{ color:"rgba(167,139,250,0.55)", fontWeight:500 }}>Guaranteed.</span> If we won&apos;t exceed your expectations, we will refund your money and give you $100 extra. That&apos;s how confident we are that this event will change your life.</p>
+                    <p style={{ fontFamily:sans, fontSize:"12px", color:"rgba(167,139,250,0.68)", lineHeight:1.7, margin:0, fontWeight:400, textAlign:"center" }}><span style={{ color:"rgba(167,139,250,0.82)", fontWeight:500 }}>Guaranteed.</span> If we won&apos;t exceed your expectations, we will refund your money and give you $100 extra. That&apos;s how confident we are that this event will change your life.</p>
                   </div>
                   <button className="btn-soldout" style={{ width:"100%", padding:"13px", fontSize:"13px", fontFamily:sans, fontWeight:600, letterSpacing:"0.1em", borderRadius:"6px", marginTop:"6px", backgroundColor:"transparent", color:C.muted, border:`1px solid rgba(167,139,250,0.3)`, cursor:"default", whiteSpace:"nowrap" as const }}>THIS EVENT IS SOLD OUT</button>
                 </div>
@@ -779,8 +779,8 @@ export default function Home() {
         <div style={{ ...inn, maxWidth:"680px" }}>
           <FadeIn>
             <div style={{ borderTop:"1px solid rgba(107,33,168,0.18)", paddingTop:"22px", marginTop:"12px", textAlign:"center" }}>
-              <p style={{ fontFamily:sans, fontSize:"10px", color:"rgba(167,139,250,0.55)", letterSpacing:"0.18em", fontWeight:500, textTransform:"uppercase" as const, margin:"0 0 10px" }}>✦ Disclaimer</p>
-              <p style={{ fontFamily:sans, fontSize:"12px", color:"rgba(167,139,250,0.48)", lineHeight:1.8, margin:0, fontWeight:400 }}>Our intention at this event is to assist with your personal wellbeing and personal development. This is not medical, psychological, financial, or legal advice. By attending you acknowledge that results shared are individual experiences and your results may vary. We encourage you to approach this event with an open heart and a very open mind.</p>
+              <p style={{ fontFamily:sans, fontSize:"10px", color:"rgba(167,139,250,0.72)", letterSpacing:"0.18em", fontWeight:500, textTransform:"uppercase" as const, margin:"0 0 10px" }}>✦ Disclaimer</p>
+              <p style={{ fontFamily:sans, fontSize:"12px", color:"rgba(167,139,250,0.68)", lineHeight:1.8, margin:0, fontWeight:400 }}>Our intention at this event is to assist with your personal wellbeing and personal development. This is not medical, psychological, financial, or legal advice. By attending you acknowledge that results shared are individual experiences and your results may vary. We encourage you to approach this event with an open heart and a very open mind.</p>
             </div>
           </FadeIn>
         </div>
